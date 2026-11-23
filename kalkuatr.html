@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator Total Belanja</title>
+</head>
+<body>
+  <h2>Kalkulator Belanja</h2>
+  Harga satuan: <input type="number" id="harga"><br>
+  Jumlah: <input type="number" id="jumlah"><br>
+  <button onclick="hitung()">Hitung</button>
+  <p id="hasil"></p>
+
+  <script>
+    function hitung() {
+      let harga = Number(document.getElementById("harga").value);
+      let jumlah = Number(document.getElementById("jumlah").value);
+      let total = harga * jumlah;
+
+      let diskon = 0;
+      if (total >= 100000) {
+        diskon = total * 0.1;
+      }
+
+      let bayar = total - diskon;
+      document.getElementById("hasil").textContent =
+        "Total: Rp" + total + " | Diskon: Rp" + diskon + " | Bayar: Rp" + bayar;
+    }
+  </script>
+</body>
+</html>
